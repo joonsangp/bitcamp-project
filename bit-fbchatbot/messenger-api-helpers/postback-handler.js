@@ -229,7 +229,7 @@ addPostback("/store/humidity", (recipientId) => {
       }
     }
   };
-  sendAPI.sendTextMessage(recipientId, '실내 습도 : ');
+  sendAPI.sendTextMessage(recipientId, '현재 실내 습도 : ');
   sendAPI.sendTextMessage(recipientId, '가습기 상태 : ');
   api.callMessagesAPI(messageData);
 })
@@ -277,7 +277,7 @@ addPostback("/store/dust", (recipientId) => {
       }
     }
   };
-  sendAPI.sendTextMessage(recipientId, '미세먼지농도 : ');
+  sendAPI.sendTextMessage(recipientId, '현재 미세먼지농도 : ');
   sendAPI.sendTextMessage(recipientId, '환풍기 상태 : ');
   api.callMessagesAPI(messageData);
 })
