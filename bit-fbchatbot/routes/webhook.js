@@ -78,7 +78,7 @@ router.post('/', (req, res) => {
           console.log('event.message===> ', event.message)
           receiveAPI.handleReceiveMessage(event);
 
-        } else if (event.postback.payload === 'GET_STARTED') {
+        } else if (event.postback === 'GET_STARTED') {
           console.log('event.postback===> ', event.postback)
           receiveAPI.handleReceivePostback(event);
 
