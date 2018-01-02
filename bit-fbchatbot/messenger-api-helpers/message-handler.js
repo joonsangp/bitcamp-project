@@ -219,6 +219,4 @@ addMessage("자주하는 질문", (recipientId) => {
 
 module.exports = {
   getHandler,
-  signOutSuccessMessage,
-  signInSuccessMessage
 };
