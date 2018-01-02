@@ -55,9 +55,9 @@ const signOutButton = {type: 'account_unlink'};
 
 const signInButton = {
   type: 'account_link',
-  //url: `${SERVER_URL}/users/login`,
   url: `https://www.bangyeonju.xyz:9999/users/login`
 };
+
 addMessage("도움말", (recipientId) => {
   var messageData = {
     recipient: {
@@ -105,7 +105,7 @@ addMessage("메뉴", (recipientId) => {
               "payload":"/store"
             },
             
-            signInButton
+            signOutButton
             
           ],
           

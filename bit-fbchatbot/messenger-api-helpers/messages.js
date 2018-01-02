@@ -9,6 +9,12 @@ const getStarted = {
         payload: 'GET_STARTED'
       },
       
+    ],
+    "greeting":[
+     {
+        "locale":"en_US",
+        "text":"Timeless apparel for the masses."
+      }
     ]
   
   }
