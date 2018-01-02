@@ -172,7 +172,7 @@ addPostback("/store", (recipientId) => {
           "buttons": [
             {
               "type": "postback",
-              "title": "온도q",
+              "title": "온도",
               "payload": "/store/temperature"
             },
             {
@@ -193,7 +193,7 @@ addPostback("/store", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 addPostback("/store/temperature", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '현재온도');
+  sendAPI.sendTextMessage(recipientId, '현재온도:');
 })
 
 
