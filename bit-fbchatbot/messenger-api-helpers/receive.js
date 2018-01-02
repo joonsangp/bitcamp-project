@@ -40,9 +40,15 @@ const handleReceivePostback = (event) => {
   var recipientID = event.recipient.id;
   var timeOfPostback = event.timestamp;
   var payload = event.postback.payload;
+  var message = event.message;
+  
 
   console.log("Received postback for user %d and page %d with payload '%s' " +
     "at %d", senderID, recipientID, payload, timeOfPostback);
+
+    var messageId = message.mid;
+    var messageText = message.text;
+    var messageAttachments = message.attachments;
 
   var handler = postbackHandler.getHandler(payload);
 
