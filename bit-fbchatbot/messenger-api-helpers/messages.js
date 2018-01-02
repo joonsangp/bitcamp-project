@@ -1,8 +1,11 @@
 const getStarted = {
-  "greeting":[
+  greeting:[
     {
       "locale":"default",
-      "text":"Hello {{user_first_name}}!"
+      "text":"Hello!"
+    }, {
+      "locale":"en_US",
+      "text":"Timeless apparel for the masses."
     }
   ],
     setting_type: 'call_to_actions',
