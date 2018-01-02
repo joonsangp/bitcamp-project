@@ -1,4 +1,11 @@
-# messenger-bot-samples
-Example bots to demonstrate best practices for the [Messenger Platform](https://developers.facebook.com/docs/messenger-platform).
-# bitcamp-profile
 # bitcamp-project
+
+git add .
+git commit -m '.'
+
+git config --global user.email "subeen9313@gmail.com"
+git config --global user.name "SUBEENKIM"
+
+git push
+Username : SUBEENKIM
+Password
