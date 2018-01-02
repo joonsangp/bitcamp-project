@@ -47,8 +47,8 @@ app.set('view engine', 'jade');
 // => 이 객체는 node HTTPS 서버를 실행할 때 사용한다.
 var options = {
   key: fs.readFileSync('/home/ec2-user/vars/custom.key'),
-  cert: fs.readFileSync('/home/ec2-user/vars/www_subeenk_xyz.crt'),
-  ca: fs.readFileSync('/home/ec2-user/vars/www_subeenk_xyz.ca-bundle')
+  cert: fs.readFileSync('/home/ec2-user/vars/www_bangyeonju_xyz.crt'),
+  ca: fs.readFileSync('/home/ec2-user/vars/www_bangyeonju_xyz.ca-bundle')
 }
 
 //운영 서버용
