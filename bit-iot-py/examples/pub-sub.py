@@ -22,7 +22,7 @@ def customCallback(client, userdata, message):
         led.onLed(False)
     print("--------------")
 
-host = "a1jawjb5359l39.iot.ap-northeast-2.amazonaws.com"
+host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
 rootCAPath = "../root-CA.crt"
 certificatePath = "../dev01.cert.pem"
 privateKeyPath = "../dev01.private.key"
