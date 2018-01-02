@@ -55,7 +55,7 @@ const handleReceivePostback = (event) => {
   }else{
     sendAPI.sendTextMessage(senderID)
     var handler = messageHandler.getHandler("도움말")
-    handler(senderID, messageText)   
+    handler(senderID)   
 
   }
 
