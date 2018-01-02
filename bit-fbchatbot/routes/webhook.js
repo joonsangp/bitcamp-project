@@ -17,14 +17,14 @@ const router = express.Router();
 // => 그래서 기본 URL이 이미 '/webhook' 이다.
 // => 그러니 '/webhook' URL을 지정하기 위해서는 그냥 '/'로 해야한다.
 router.get('/', (req, res) => {
-    if (req.query['hub.mode'] === 'subscribe' &&
-        req.query['hub.verify_token'] === process.env.VERIFY_TOKEN) {
-        console.log("Validating webhook");
-        res.status(200).send(req.query['hub.challenge']);
-    } else {
-        console.error("Failed validation. Make sure the validation tokens match.");
-        res.sendStatus(403);
-    }
+  if (req.query['hub.mode'] === 'subscribe' &&
+    req.query['hub.verify_token'] === process.env.VERIFY_TOKEN) {
+    console.log("Validating webhook");
+    res.status(200).send(req.query['hub.challenge']);
+  } else {
+    console.error("Failed validation. Make sure the validation tokens match.");
+    res.sendStatus(403);
+  }
 });
 
 
@@ -51,10 +51,10 @@ router.post('/', (req, res) => {
 
     //페이지가 받은 데이터 덩어리(entry)가 여러 개일 수 있기 때문에
     //반복적으로 처리해야한다.
-    data.entry.forEach(function(entry) {
+    data.entry.forEach(function (entry) {
 
       //메시지 관련 데이터가 들어 있지 않다면 요청 처리를 종료한다.
-      if(!entry.messaging){
+      if (!entry.messaging) {
         return;
       }
 
@@ -62,14 +62,14 @@ router.post('/', (req, res) => {
       var timeOfEvent = entry.time;
 
       // 메시지에 들어있는 각각의 이벤트를 처리한다.
-      entry.messaging.forEach(function(event) {
+      entry.messaging.forEach(function (event) {
 
         //접속한 사용자의 상태 정보를 저장할 객체를 준비한다.
         // => 일종의 세션 객체로서 역할을 할 것이다.
         var senderID = event.sender.id;
-        if(!global[senderID]){ //접속한 사용자를 위한 보관소가 없다면
-          global[senderID] ={
-            'user':senderID
+        if (!global[senderID]) { //접속한 사용자를 위한 보관소가 없다면
+          global[senderID] = {
+            'user': senderID
           }; // 빈 보관소를 만들어 글로벌 객체에 저장한다.
           //console.log(senderID, '====>> 세션 객체를 준비했습니다.');
         }
@@ -79,6 +79,12 @@ router.post('/', (req, res) => {
           receiveAPI.handleReceiveMessage(event);
 
         } else if (event.postback) {
+
+          if (event.postback.payload === 'GET_STARTED') {  // 사용자가 있거나 처음 시작한다면 if문 수행
+            console.log('event.postback===>11111111111111 ', event.postback)
+            receiveAPI.handleReceivePostback(event);
+
+          }
           console.log('event.postback===> ', event.postback)
           receiveAPI.handleReceivePostback(event);
 
@@ -92,7 +98,7 @@ router.post('/', (req, res) => {
 
   } // if(data.object === 'page')
 
-    //res.sendStatus(200);
+  //res.sendStatus(200);
 
 
 }); // router.post('/' ...)

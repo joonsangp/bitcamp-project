@@ -192,6 +192,7 @@ addMessage("가습기", (recipientId) => {
     }
   }
    };
+  sendAPI.sendTextMessage(recipientId, '현재습도 : ');
   api.callMessagesAPI(messageData);
 })
 
