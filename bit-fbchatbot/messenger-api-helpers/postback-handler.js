@@ -172,7 +172,7 @@ addPostback("/store", (recipientId) => {
           "buttons": [
             {
               "type": "postback",
-              "title": "온도",
+              "title": "온도q",
               "payload": "/store/temperature"
             },
             {
