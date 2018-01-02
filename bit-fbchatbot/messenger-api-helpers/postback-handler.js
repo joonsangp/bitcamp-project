@@ -173,7 +173,7 @@ addPostback("/store", (recipientId) => {
             {
               "type": "postback",
               "title": "온도",
-              "payload": "/store/humidity"
+              "payload": "/store/temperature"
             },
             {
               "type": "postback",
@@ -191,6 +191,9 @@ addPostback("/store", (recipientId) => {
     }
   };
   api.callMessagesAPI(messageData);
+})
+addPostback("/store/temperature", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '현재온도');
 })
 
 
