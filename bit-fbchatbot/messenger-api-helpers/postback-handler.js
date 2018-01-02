@@ -235,11 +235,11 @@ addPostback("/store/humidity", (recipientId) => {
 })
 
 addPostback("/store/humidity/on", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '가습기 on');
+  sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
 })
 
 addPostback("/store/humidity/off", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '가습기 off');
+  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
 })
 // addPostback("/store/dust", (recipientId) => {
 //   sendAPI.sendTextMessage(recipientId, '공기청정정보확인!');
@@ -283,11 +283,11 @@ addPostback("/store/dust", (recipientId) => {
 })
 
 addPostback("/store/dust/on", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '환풍기 on');
+  sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
 })
 
 addPostback("/store/dust/off", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '환풍기 off');
+  sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
 })
 
 

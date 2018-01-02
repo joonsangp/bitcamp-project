@@ -62,6 +62,7 @@ addMessage("도움말", (recipientId) => {
     message: {
       text : "채팅창에 입력해 보세요 \n"
       + "▶︎ 메뉴\n"
+      + "▶︎ 온도\n"
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
       + "▶︎ 환풍기\n"
@@ -155,6 +156,8 @@ addMessage("환풍기", (recipientId) => {
   }
    };
   api.callMessagesAPI(messageData);
+  sendAPI.sendTextMessage(recipientId, '현재미세먼지농도 : ');
+  
 })
 
 addMessage("가습기", (recipientId) => {
