@@ -170,7 +170,11 @@ addPostback("/store", (recipientId) => {
           "template_type": "button",
           "text": "실내매장관리",
           "buttons": [
-           
+            {
+              "type": "postback",
+              "title": "온도",
+              "payload": "/store/humidity"
+            },
             {
               "type": "postback",
               "title": "습도",
