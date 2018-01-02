@@ -1,4 +1,13 @@
 const getStarted = {
+  greeting:[
+    {
+      "locale":"default",
+      "text":"Hello!"
+    }, {
+      "locale":"en_US",
+      "text":"Timeless apparel for the masses."
+    }
+  ],
     setting_type: 'call_to_actions',
     thread_state: 'new_thread',
     call_to_actions: [
@@ -10,12 +19,6 @@ const getStarted = {
       },
       
     ],
-    "greeting":[
-     {
-        "locale":"en_US",
-        "text":"Timeless apparel for the masses."
-      }
-    ]
   
   }
   const signInButton = {
