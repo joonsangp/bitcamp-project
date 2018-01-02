@@ -116,6 +116,210 @@ addPostback('/calc', (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '식을 입력하세요.\n 예) a + b');
 });
 
+
+const signOutButton = { type: 'account_unlink' };
+
+addPostback("/board", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "메뉴판확인",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "메인메뉴판",
+              "payload": "/board/main"
+            },
+            {
+              "type": "postback",
+              "title": "이벤트메뉴판",
+              "payload": "/board/event"
+            },
+          ]
+        }
+      }
+    }
+  };
+  api.callMessagesAPI(messageData);
+})
+
+addPostback("/board/main", (recipientId) => {
+  sendAPI.sendImageMessage(recipientId)
+  // SpringBoot 와 연결한다;
+})
+addPostback("/board/event", (recipientId) => {
+  sendAPI.sendGenericMessage(recipientId)
+  // SpringBoot 와 연결한다;
+})
+
+addPostback("/store", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "실내매장관리",
+          "buttons": [
+           
+            {
+              "type": "postback",
+              "title": "습도",
+              "payload": "/store/humidity"
+            },
+            {
+              "type": "postback",
+              "title": "미세먼지",
+              "payload": "/store/dust"
+            }
+          ]
+        }
+      }
+    }
+  };
+  api.callMessagesAPI(messageData);
+})
+
+
+addPostback("/store/humidity", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "가습기 on/off 제어 해주세요",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "가습기 on",
+              "payload": "/store/humidity/on"
+            },
+            {
+              "type": "postback",
+              "title": "가습기 off",
+              "payload": "/store/humidity/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+  sendAPI.sendTextMessage(recipientId, '실내 습도 : ');
+  sendAPI.sendTextMessage(recipientId, '가습기 상태 : ');
+  api.callMessagesAPI(messageData);
+})
+
+addPostback("/store/humidity/on", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 on');
+})
+
+addPostback("/store/humidity/off", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 off');
+})
+// addPostback("/store/dust", (recipientId) => {
+//   sendAPI.sendTextMessage(recipientId, '공기청정정보확인!');
+// })
+
+addPostback("/store/dust", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "환풍기 on/off 제어 해주세요",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "환풍기 on",
+              "payload": "/store/dust/on"
+            },
+            {
+              "type": "postback",
+              "title": "환풍기 off",
+              "payload": "/store/dust/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+  sendAPI.sendTextMessage(recipientId, '미세먼지농도 : ');
+  sendAPI.sendTextMessage(recipientId, '환풍기 상태 : ');
+  api.callMessagesAPI(messageData);
+})
+
+addPostback("/store/dust/on", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '환풍기 on');
+})
+
+addPostback("/store/dust/off", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '환풍기 off');
+})
+
+
+
+addPostback("/menu", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "옵션을 보고싶으세요? 아래에서 탭 해주세요.",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "메뉴판",
+              "payload": "/board" // 버튼 클릭 시, 서버에 다시 보내지는 값; postback-handler 에 구현
+            },
+            {
+              "type": "postback",
+              "title": "매장관리",
+              "payload": "/store"
+            },
+            signOutButton
+          ],
+        },
+      }
+    }
+
+  };
+
+  api.callMessagesAPI(messageData);
+})
+
+
 module.exports = {
   getHandler
 };

@@ -8,38 +8,6 @@ const messageHandler = {
 };
 
 
-const signInButton = {
-
-  type: 'account_link',
-  "url":"https://www.bangyeonju.xyz:9999/login3.html"
-  //"url":"https://www.subeenk.xyz:9999/login-complete"
-};
-
-const signOutButton = {type: 'account_unlink'};
-
-const signInSuccessMessage = {
-  attachment: {
-    type: 'template',
-    payload: {
-      template_type: 'button',
-      text: 'Now you’ll have full access to your order history and shopping list.',
-      buttons: [signOutButton],
-    },
-  },
-};
-
-const signOutSuccessMessage = {
-  attachment: {
-    type: 'template',
-    payload: {
-      template_type: 'button',
-      text: 'You’ve been logged out of your Jasper’s account.',
-      buttons: [signInButton],
-    },
-  },
-};
-
-
 const addMessage = (message, handler) => {
   messageHandler[message] = handler;
 }
@@ -83,87 +51,171 @@ addMessage('help', (recipientId) => {
   api.callMessagesAPI(messageData);
 });
 
-addMessage('login', (recipientId) => {
-  console.log('=====================>')
-  //console.log(signInButton);
-  var messageData= {
+const signOutButton = {type: 'account_unlink'};
+
+addMessage("도움말", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+  },
+
+    message: {
+      text : "채팅창에 입력해 보세요 \n"
+      + "▶︎ 메뉴\n"
+      + "▶︎ 습도\n"
+      + "▶︎ 미세먼지\n"
+      + "▶︎ 환풍기\n"
+      + "▶︎ 가습기\n"
+      + "▶︎ 자주하는 질문\n",
+      
+    },
+    
+   };
+  api.callMessagesAPI(messageData);
+})
+
+// "menu" 메시지를 처리할 함수 등록
+addMessage("메뉴", (recipientId) => {
+  var messageData = {
     recipient: {
       id: recipientId
     },
+    
     message: {
       "attachment":{
         "type":"template",
         "payload":{
           "template_type":"button",
-          "text":"로그인",
-          "buttons":[signInButton]
-        }
+          "text":"옵션을 보고싶으세요? 아래에서 탭 해주세요.",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"메뉴판",
+              "payload":"/board" // 버튼 클릭 시, 서버에 다시 보내지는 값; postback-handler 에 구현
+            },
+            {
+              "type":"postback",
+              "title":"매장관리",
+              "payload":"/store"
+            },
+            
+            signOutButton
+            
+          ],
+          
+        },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
       }
     }
   };
   api.callMessagesAPI(messageData);
-});
+})
 
-addMessage('/calc', (recipientId, messageText) => {
-  try{
-    var tokens = messageText.split(' ');
-    if (tokens.length != 3)
-      throw '계산 형식 오류';
+addMessage('습도', (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '현재습도: ');
+})
 
-    var a = parseInt(tokens[0]);
-    var op = tokens[1];
-    var b = parseInt(tokens[2]);
-    var result = 0;
-    switch (op) {
-      case '+': result = a + b; break;
-      case '-': result = a - b; break;
-      case '*': result = a * b; break;
-      case '/': result = a / b; break;
-      case '%': result = a % b; break;
+addMessage("미세먼지", (recipientId) => {
+  sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
+})
+  
 
-      default:
-        sendAPI.sendTextMessage(recipientId,
-          '+','-','*','/','% 연산자만 사용할 수 있습니다.')
-        return;
-
+addMessage("환풍기", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+  },
+  message: {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "환풍기 on/off 제어 해주세요",
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "환풍기 on",
+            "payload": "/store/dust/on"
+          },
+          {
+            "type": "postback",
+            "title": "환풍기 off",
+            "payload": "/store/dust/off"
+          },
+          {
+            "type": "postback",
+            "title": "메인으로",
+            "payload": "/menu"
+          }
+        ]
       }
-      sendAPI.sendTextMessage(recipientId,
-        '계산 결과는 ' + result + ' 입니다.')
-
-
-  } catch(exception){
-    sendAPI.sendTextMessage(recipientId,
-      '계산식이 옳지 않습니다.\n 예) a + b')
+    }
   }
-});
+   };
+  api.callMessagesAPI(messageData);
+})
 
-addMessage('/addr/road', (recipientId, messageText) => {
-    try{
-      openAPI.searchNewAddress('road',messageText, (msg) => {
-        sendAPI.sendTextMessage(recipientId, msg);
-      });
-    }catch(err){
-      console.log(err);
+addMessage("가습기", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+  },
+  message: {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text": "가습기 on/off",
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "가습기 on",
+            "payload": "/store/dust/on"
+          },
+          {
+            "type": "postback",
+            "title": "가습기 off",
+            "payload": "/store/dust/off"
+          },
+          {
+            "type": "postback",
+            "title": "메인으로",
+            "payload": "/menu"
+          }
+        ]
+      }
     }
-});
-addMessage('/addr/dong', (recipientId, messageText) => {
-    try{
-      openAPI.searchNewAddress('dong',messageText, (msg) => {
-        sendAPI.sendTextMessage(recipientId, msg);
-      });
-    }catch(err){
-      console.log(err);
-    }
-});
-addMessage('/addr/post', (recipientId, messageText) => {
-    try{
-      openAPI.searchNewAddress('post',messageText, (msg) => {
-        sendAPI.sendTextMessage(recipientId, msg);
-      });
-    }catch(err){
-      console.log(err);
-    }
-});
+  }
+   };
+  api.callMessagesAPI(messageData);
+})
+
+
+addMessage("자주하는 질문", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+
+    message: {
+          "text": "아래 중에 궁금하신 내용이 있나요? \n"
+          + "1.\n"
+          + "2.\n"
+          + "3.\n"
+          + "4.\n"
+          + "5.\n",
+
+          quick_replies:[
+            {
+              "content_type":"text",
+              "title":"1",
+              "payload":"1",
+            }
+          ]
+    },
+  };
+
+  api.callMessagesAPI(messageData);
+})
 
 module.exports = {
   getHandler,
