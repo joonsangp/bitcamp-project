@@ -62,7 +62,7 @@ addMessage("도움말", (recipientId) => {
     recipient: {
       id: recipientId
     },
-    "sender_action":"typing_on",
+
     message: {
       text: "채팅창에 입력해 보세요 \n"
       + "▶︎ 메뉴\n"
@@ -77,7 +77,7 @@ addMessage("도움말", (recipientId) => {
 })
 
 // "menu" 메시지를 처리할 함수 등록
-addMessage(addMessage.indexOf(메뉴), (recipientId) => {
+addMessage(messageHandler.indexOf('메뉴'), (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
