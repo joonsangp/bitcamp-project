@@ -4,7 +4,6 @@ const openAPI = require('../rest-api/openapi');
 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
-
 };
 
 const addMessage = (message, handler) => {
@@ -70,10 +69,9 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
      // + "▶︎ 자주하는 질문\n",
-      
     },
     
-   };
+};
   api.callMessagesAPI(messageData);
 })
 
@@ -83,7 +81,6 @@ addMessage("메뉴", (recipientId) => {
     recipient: {
       id: recipientId
     },
-    
     message: {
       "attachment":{
         "type":"template",
@@ -105,7 +102,6 @@ addMessage("메뉴", (recipientId) => {
             signOutButton
             
           ],
-          
         },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
       }
     }
