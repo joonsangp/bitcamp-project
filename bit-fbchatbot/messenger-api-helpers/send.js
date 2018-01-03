@@ -13,9 +13,6 @@ const sendTextMessage = (recipientId, messageText) => {
     },
   };
   api.callMessagesAPI(messageData);
-  typingOff(recipientId);
-  
-  
 };
 const sendImageMessage = (recipientId) => {
   var messageData = {
