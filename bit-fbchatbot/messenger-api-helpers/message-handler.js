@@ -71,7 +71,6 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 미세먼지\n"
       // + "▶︎ 자주하는 질문\n",
     },
-    "sender_action":"typing_on"
   };
   api.callMessagesAPI(messageData);
 

@@ -9,9 +9,12 @@ const sendTextMessage = (recipientId, messageText) => {
     },
     message: {
       text: messageText
-    }
+  
+    },
+    sender_action:"typing_on"
   };
   api.callMessagesAPI(messageData);
+  
 };
 
 const sendImageMessage = (recipientId) => {
