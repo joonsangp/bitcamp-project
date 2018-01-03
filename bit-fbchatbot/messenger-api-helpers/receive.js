@@ -40,7 +40,7 @@ const handleReceivePostback = (event) => {
   var timeOfPostback = event.timestamp;
   var payload = event.postback.payload;
   var message = event.message;
-  sendAPI.sendReadReceipt(senderID);
+  //sendAPI.sendReadReceipt(senderID);
   
   console.log("Received postback for user %d and page %d with payload '%s' " +
     "at %d", senderID, recipientID, payload, timeOfPostback);
