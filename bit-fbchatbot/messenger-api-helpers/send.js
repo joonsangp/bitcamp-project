@@ -135,14 +135,7 @@ const typingOn = (recipientId) => {
 
   api.callMessagesAPI(messageData);
 };
-const typingOff = (recipientId) => {
-  return {
-    recipient: {
-      id: recipientId,
-    },
-    sender_action: 'typing_off', // eslint-disable-line camelcase
-  };
-};
+
 
 module.exports = {
 
@@ -150,6 +143,5 @@ module.exports = {
   sendGenericMessage,
   sendImageMessage,
   typingOn,
-  typingOff
 
 };
