@@ -73,7 +73,6 @@ addMessage("도움말", (recipientId) => {
       // + "▶︎ 자주하는 질문\n",
     },
   };
-  sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
 
@@ -105,7 +104,7 @@ addMessage('메뉴', (recipientId) => {
       }
     }
   };
-  sendAPI.typingOn(recipientId);
+  
   api.callMessagesAPI(messageData);
 })
 addMessage('온도', (recipientId, messageText) => {
