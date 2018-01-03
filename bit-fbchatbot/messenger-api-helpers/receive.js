@@ -18,7 +18,7 @@ const handleReceiveMessage = (event) => {
     var menu = global[senderID].menu; // 사용자의 현재 메뉴
 
     var handler = messageHandler.getHandler(messageText);
-    sendAPI.sendReadReceipt(recipientId);
+    sendAPI.sendReadReceipt(senderID);
     
     if(handler) { // 메시지를 처리할 함수가 있다면
      // sendAPI.sendReadReceipt(senderID);
