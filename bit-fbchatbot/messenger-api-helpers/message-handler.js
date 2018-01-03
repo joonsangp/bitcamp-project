@@ -79,7 +79,7 @@ addMessage("도움말", (recipientId) => {
 })
 
 // "menu" 메시지를 처리할 함수 등록
-addMessage(indexof('메뉴'), (recipientId) => {
+addMessage(indexof(메뉴), (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
