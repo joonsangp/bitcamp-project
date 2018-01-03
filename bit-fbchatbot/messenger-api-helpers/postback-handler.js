@@ -12,7 +12,7 @@ const addPostback = (postback, handler) => {
 const getHandler = (postback) => {
   return postbackHandler[postback];
 };
-
+/*
 addPostback('/led', (recipientId) => {
   var messageData = {
     recipient: {
@@ -116,7 +116,7 @@ addPostback('/calc', (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '식을 입력하세요.\n 예) a + b');
 });
 
-
+*/
 const signOutButton = { type: 'account_unlink' };
 
 addPostback("/board", (recipientId) => {
