@@ -9,6 +9,8 @@ const messageHandler = {
 
 const addMessage = (message, handler) => {
   messageHandler[message] = handler;
+  sendAPI.typingOn(recipientId);
+  
 }
 
 const getHandler = (message) => {
