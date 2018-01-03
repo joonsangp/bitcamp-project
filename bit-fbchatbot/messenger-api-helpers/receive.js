@@ -20,7 +20,7 @@ const handleReceiveMessage = (event) => {
     var handler = messageHandler.getHandler(messageText);
 
     if(handler) { // 메시지를 처리할 함수가 있다면
-      sendAPI.sendReadReceipt(senderID);
+     // sendAPI.sendReadReceipt(senderID);
       handler(senderID); // 그함수 호츨    
     } else if (menu) {
       /* handler = messageHandler.getHandler(menu); // 사용자 현재 메뉴의 메시지를 처리할 함수를 꺼낸다
@@ -50,7 +50,7 @@ const handleReceivePostback = (event) => {
   if(handler){
     global[senderID].menu = payload;
     handler(senderID);
-    sendAPI.sendReadReceipt(senderID);
+    //sendAPI.sendReadReceipt(senderID);
 
     
   }else{
