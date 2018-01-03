@@ -128,12 +128,12 @@ addMessage('습도', (recipientId, messageText) => {
           {
             "type": "postback",
             "title": "가습기 on",
-            "payload": "/store/dust/on"
+            "payload": "/store/humidity/on"
           },
           {
             "type": "postback",
             "title": "가습기 off",
-            "payload": "/store/dust/off"
+            "payload": "/store/humidity/off"
           },
           {
             "type": "postback",
