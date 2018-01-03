@@ -230,16 +230,25 @@ addPostback("/store/humidity", (recipientId) => {
     }
   };
   sendAPI.sendTextMessage(recipientId, '현재 실내 습도 : ');
-  sendAPI.sendTextMessage(recipientId, '가습기 상태 : ');
   api.callMessagesAPI(messageData);
 })
 
 addPostback("/store/humidity/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity on',
+    humidifier: 'on'
+  });
+  awsIoTShadow.update({humidifier:on});
 })
 
 addPostback("/store/humidity/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity off',
+    humidifier: 'off'
+  });
+  awsIoTShadow.update({humidifier:off});
 })
 // addPostback("/store/dust", (recipientId) => {
 //   sendAPI.sendTextMessage(recipientId, '공기청정정보확인!');
