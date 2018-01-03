@@ -48,7 +48,6 @@ const sendImageMessage = (recipientId) => {
   api.callMessagesAPI(messageData);
 };
 
-
 const sendGenericMessage = (recipientId) => {
   var messageData = {
     recipient: {
@@ -128,64 +127,10 @@ const sendGenericMessage = (recipientId) => {
   api.callMessagesAPI(messageData);
 };
 
-
-const typingOn = (recipientId) => {
-  return {
-    recipient: {
-      id: recipientId,
-    },
-    sender_action: 'typing_on', // eslint-disable-line camelcase
-  };
-};
-// Turns typing indicator off.
-const typingOff = (recipientId) => {
-  return {
-    recipient: {
-      id: recipientId,
-    },
-    sender_action: 'typing_off', // eslint-disable-line camelcase
-  };
-};
-// Wraps a message json object with recipient information.
-const messageToJSON = (recipientId, messagePayload) => {
-  return {
-    recipient: {
-      id: recipientId,
-    },
-    message: messagePayload,
-  };
-};
-// Send one or more messages using the Send API.
-const sendMessage = (recipientId, messagePayloads) => {
-  const messagePayloadArray = castArray(messagePayloads)
-    .map((messagePayload) => messageToJSON(recipientId, messagePayload));
-
-  api.callMessagesAPI(
-    [
-      typingOn(recipientId),
-      ...messagePayloadArray,
-      typingOff(recipientId),
-    ]);
-};
-
-const sendSignInSuccessMessage = (recipientId, username) => {
-  sendMessage(
-    recipientId,
-    [
-      messages.signInGreetingMessage(username),
-    ]);
-    // var handler = messageHandler.getHandler("메뉴")
-    //  handler(recipientId)   
-    
-};  
-
 module.exports = {
 
   sendTextMessage,
   sendGenericMessage,
   sendImageMessage,
-  sendSignInSuccessMessage,
-  sendMessage
-
 
 };

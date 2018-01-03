@@ -12,6 +12,7 @@ const router = express.Router();
 
 const sendAPI = require('../messenger-api-helpers/send');
 
+
 // 페이스북 서버에서 이 서버의 유효성을 검사하기 위해 요청
 // => webhook.js는 클라이언트에서 URL '/webhook' 으로 요청이 들어 왔을 때 실행한다.
 // => 그래서 기본 URL이 이미 '/webhook' 이다.
@@ -61,7 +62,6 @@ router.post('/', (req, res) => {
       var pageID = entry.id;
       var timeOfEvent = entry.time;
 
-      
       // 메시지에 들어있는 각각의 이벤트를 처리한다.
       entry.messaging.forEach(function (event) {
 
@@ -83,7 +83,6 @@ router.post('/', (req, res) => {
 
           if (event.postback.payload === 'GET_STARTED') {  // 사용자가 있거나 처음 시작한다면 if문 수행
             console.log('event.postback===>11111111111111 ', event.postback)
-            sendAPI.sendSignInSuccessMessage(senderID);
             
           }
           console.log('event.postback===> ', event.postback)
