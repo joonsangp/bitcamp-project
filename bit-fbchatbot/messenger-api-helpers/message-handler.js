@@ -73,7 +73,7 @@ addMessage("도움말", (recipientId) => {
     },
   };
   api.callMessagesAPI(messageData);
-
+  sendAPI.typingOn(recipientId)
 })
 
 addMessage('메뉴', (recipientId) => {
@@ -98,9 +98,7 @@ addMessage('메뉴', (recipientId) => {
               "title": "매장관리",
               "payload": "/store"
             },
-
             signOutButton
-
           ],
         },
       }
