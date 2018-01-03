@@ -2,6 +2,17 @@ const api = require('./api')
 const messages = require("./messages")
 const castArray = require("lodash/castArray")
 
+const typingOn = (recipientId) => {
+  const messageData = {
+    recipient: {
+      id: recipientId,
+    },
+    sender_action: 'typing_on', // eslint-disable-line camelcase
+  };
+
+  api.callMessagesAPI(messageData);
+};
+
 // 기존 함수
 const sendTextMessage = (recipientId, messageText) => {
   var messageData = {
@@ -123,16 +134,6 @@ const sendGenericMessage = (recipientId) => {
       }
     }
   };  
-  api.callMessagesAPI(messageData);
-};
-const typingOn = (recipientId) => {
-  const messageData = {
-    recipient: {
-      id: recipientId,
-    },
-    sender_action: 'typing_on', // eslint-disable-line camelcase
-  };
-
   api.callMessagesAPI(messageData);
 };
 
