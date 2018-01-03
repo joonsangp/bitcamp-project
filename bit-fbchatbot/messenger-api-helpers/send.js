@@ -8,11 +8,10 @@ const sendTextMessage = (recipientId, messageText) => {
     recipient: {
       id: recipientId
     },
+    "sender_action":"typing_on",
     message: {
       text: messageText
-  
     },
-    sender_action:"typing_on"
   };
   api.callMessagesAPI(messageData);
   
