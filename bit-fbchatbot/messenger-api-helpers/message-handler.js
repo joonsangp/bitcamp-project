@@ -98,7 +98,7 @@ addMessage('메뉴', (recipientId) => {
               "title": "매장관리",
               "payload": "/store"
             },
-            signOutButton
+           // signOutButton
           ],
         },
       }
