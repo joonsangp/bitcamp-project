@@ -3,7 +3,6 @@ const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
 const indexof = require("lodash/indexOf")
 
-
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
 };
@@ -78,8 +77,7 @@ addMessage("도움말", (recipientId) => {
 
 })
 
-// "menu" 메시지를 처리할 함수 등록
-addMessage(indexof('메뉴'), (recipientId) => {
+addMessage('메뉴', (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -105,6 +103,8 @@ addMessage(indexof('메뉴'), (recipientId) => {
             signOutButton
 
           ],
+          "sender_action":"typing_on"
+          
         },
       }
     }
