@@ -69,7 +69,7 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 온도\n"
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
-      + "▶︎ 자주하는 질문\n",
+     // + "▶︎ 자주하는 질문\n",
       
     },
     
@@ -189,10 +189,8 @@ addMessage("미세먼지", (recipientId) => {
    };
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
     api.callMessagesAPI(messageData);
-
 })
-  
-
+/*
 addMessage("자주하는 질문", (recipientId) => {
   var messageData = {
     recipient: {
@@ -219,7 +217,7 @@ addMessage("자주하는 질문", (recipientId) => {
 
   api.callMessagesAPI(messageData);
 })
-
+*/
 module.exports = {
   getHandler,
 };
