@@ -1,5 +1,6 @@
 const api = require('./api')
 const messages = require("./messages")
+const castArray = require("lodash/castArray")
 
 // 기존 함수
 const sendTextMessage = (recipientId, messageText) => {
@@ -15,7 +16,7 @@ const sendTextMessage = (recipientId, messageText) => {
   };
   api.callMessagesAPI(messageData);
   
-};
+};"https://graph.facebook.com/v2.6/me/messages?access_token=" + process.env.PAGE_ACCESS_TOKEN
 
 const sendImageMessage = (recipientId) => {
   var messageData = {
