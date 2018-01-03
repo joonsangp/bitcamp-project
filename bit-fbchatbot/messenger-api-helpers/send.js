@@ -1,4 +1,5 @@
 const api = require('./api')
+const messages = require("./messages")
 
 // 기존 함수
 const sendTextMessage = (recipientId, messageText) => {
