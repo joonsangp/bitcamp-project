@@ -90,6 +90,7 @@ router.post('/', (req, res) => {
 
         } else {
           console.log("unknown event===> ", event);
+          sendAPI.typingOn(senderID);
         }
 
       }); //entry.messaging.forEach()

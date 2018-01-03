@@ -21,7 +21,7 @@ const handleReceiveMessage = (event) => {
     
     // sendAPI.typingOn(senderID);
     if(handler) { // 메시지를 처리할 함수가 있다면
-      sendAPI.typingOn(senderID);
+      //sendAPI.typingOn(senderID);
       handler(senderID); // 그함수 호츨    
     } else if (menu) {
       /* handler = messageHandler.getHandler(menu); // 사용자 현재 메뉴의 메시지를 처리할 함수를 꺼낸다
