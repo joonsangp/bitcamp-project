@@ -18,10 +18,11 @@ const handleReceiveMessage = (event) => {
     var menu = global[senderID].menu; // 사용자의 현재 메뉴
 
     var handler = messageHandler.getHandler(messageText);
-    sendAPI.sendReadReceipt(senderID);
 
     if(handler) { // 메시지를 처리할 함수가 있다면
       handler(senderID); // 그함수 호츨
+    sendAPI.sendReadReceipt(senderID);
+    
     } else if (menu) {
       /* handler = messageHandler.getHandler(menu); // 사용자 현재 메뉴의 메시지를 처리할 함수를 꺼낸다
       handler(senderID, messageText);
