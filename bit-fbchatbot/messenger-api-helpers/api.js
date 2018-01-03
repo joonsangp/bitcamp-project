@@ -17,6 +17,8 @@ const callMessagesAPI = (messageData) => {
         if(messageId){
           console.log("Successfully sent generic message with id %s to recipient %s",
           messageId, recipientId);
+          sendAPI.typingOn(recipientId);
+          
 
         }else{
           console.log("Successfully called Send API for recipient %s", recipientId);
