@@ -126,11 +126,29 @@ const sendGenericMessage = (recipientId) => {
   };  
   api.callMessagesAPI(messageData);
 };
+const typingOn = (recipientId) => {
+  return {
+    recipient: {
+      id: recipientId,
+    },
+    sender_action: 'typing_on', // eslint-disable-line camelcase
+  };
+};
+
+const sendMessage = (recipientId, messagePayloads) => {
+
+  api.callMessagesAPI(
+    [
+      typingOn(recipientId),
+    ]);
+};
+
 
 module.exports = {
 
   sendTextMessage,
   sendGenericMessage,
   sendImageMessage,
+  sendMessage
 
 };

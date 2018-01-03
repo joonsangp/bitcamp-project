@@ -63,8 +63,6 @@ addMessage("도움말", (recipientId) => {
     recipient: {
       id: recipientId
     },
-
-    "sender_action":"typing_on",
     message: {
       text: "채팅창에 입력해 보세요 \n"
       + "▶︎ 메뉴\n"
