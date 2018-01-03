@@ -168,14 +168,16 @@ const sendMessage = (recipientId, messagePayloads) => {
     ]);
 };
 
-const sendUserMessage = (recipientId, username) => {
+const sendSignInSuccessMessage = (recipientId, username) => {
   sendMessage(
     recipientId,
     [
-      messages.signInUserMessage(username),
+      messages.signInGreetingMessage(username),
     ]);
+    // var handler = messageHandler.getHandler("메뉴")
+    //  handler(recipientId)   
     
-}; 
+};  
 
 module.exports = {
 
