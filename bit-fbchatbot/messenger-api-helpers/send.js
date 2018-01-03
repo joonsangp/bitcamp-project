@@ -184,7 +184,7 @@ module.exports = {
   sendTextMessage,
   sendGenericMessage,
   sendImageMessage,
-  sendUserMessage,
+  sendSignInSuccessMessage,
   sendMessage
 
 
