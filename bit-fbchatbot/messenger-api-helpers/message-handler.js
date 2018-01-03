@@ -73,9 +73,6 @@ addMessage("도움말", (recipientId) => {
       // + "▶︎ 자주하는 질문\n",
     },
   };
-  
-  sendAPI.sendReadReceipt(recipientId);
-  
   api.callMessagesAPI(messageData);
 })
 
