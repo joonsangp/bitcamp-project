@@ -151,6 +151,8 @@ addMessage('습도', (recipientId, messageText) => {
    };
 
   sendAPI.sendTextMessage(recipientId, '현재습도: ');
+  api.callMessagesAPI(messageData);
+  
 })
 
 addMessage("미세먼지", (recipientId) => {
