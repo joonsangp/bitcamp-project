@@ -7,7 +7,6 @@ const messageHandler = {
 
 };
 
-
 const addMessage = (message, handler) => {
   messageHandler[message] = handler;
 }
@@ -70,8 +69,6 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 온도\n"
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
-      + "▶︎ 환풍기\n"
-      + "▶︎ 가습기\n"
       + "▶︎ 자주하는 질문\n",
       
     },
@@ -116,56 +113,11 @@ addMessage("메뉴", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 addMessage('온도', (recipientId, messageText) => {
+  
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
 })
 
 addMessage('습도', (recipientId, messageText) => {
-  sendAPI.sendTextMessage(recipientId, '현재습도: ');
-})
-
-addMessage("미세먼지", (recipientId) => {
-  sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
-})
-  
-
-addMessage("환풍기", (recipientId) => {
-  var messageData = {
-    recipient: {
-      id: recipientId
-  },
-  message: {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "환풍기 on/off 제어 해주세요",
-        "buttons": [
-          {
-            "type": "postback",
-            "title": "환풍기 on",
-            "payload": "/store/dust/on"
-          },
-          {
-            "type": "postback",
-            "title": "환풍기 off",
-            "payload": "/store/dust/off"
-          },
-          {
-            "type": "postback",
-            "title": "메인으로",
-            "payload": "/menu"
-          }
-        ]
-      }
-    }
-  }
-   };
-  api.callMessagesAPI(messageData);
-  sendAPI.sendTextMessage(recipientId, '현재미세먼지농도 : ');
-  
-})
-
-addMessage("가습기", (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -197,10 +149,47 @@ addMessage("가습기", (recipientId) => {
     }
   }
    };
-  sendAPI.sendTextMessage(recipientId, '현재습도 : ');
-  api.callMessagesAPI(messageData);
+
+  sendAPI.sendTextMessage(recipientId, '현재습도: ');
 })
 
+addMessage("미세먼지", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+  },
+  message: {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "환풍기 on/off 제어 해주세요",
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "환풍기 on",
+            "payload": "/store/dust/on"
+          },
+          {
+            "type": "postback",
+            "title": "환풍기 off",
+            "payload": "/store/dust/off"
+          },
+          {
+            "type": "postback",
+            "title": "메인으로",
+            "payload": "/menu"
+          }
+        ]
+      }
+    }
+  }
+   };
+  sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
+    api.callMessagesAPI(messageData);
+
+})
+  
 
 addMessage("자주하는 질문", (recipientId) => {
   var messageData = {
