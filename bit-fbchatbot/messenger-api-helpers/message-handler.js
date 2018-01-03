@@ -74,6 +74,8 @@ addMessage("도움말", (recipientId) => {
     },
   };
   api.callMessagesAPI(messageData);
+  sendAPI.typingOn(recipientId);
+
 })
 
 addMessage('메뉴', (recipientId) => {
