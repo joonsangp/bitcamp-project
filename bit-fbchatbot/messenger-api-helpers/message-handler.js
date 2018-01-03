@@ -127,7 +127,7 @@ addMessage('습도', (recipientId, messageText) => {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text": "가습기 on/off",
+        "text": "가습기를 제어 하시겠습니까?",
         "buttons": [
           {
             "type": "postback",
@@ -165,7 +165,7 @@ addMessage("미세먼지", (recipientId) => {
       "type": "template",
       "payload": {
         "template_type": "button",
-        "text": "환풍기 on/off 제어 해주세요",
+        "text": "환풍기 제어 하시겠습니까?",
         "buttons": [
           {
             "type": "postback",
