@@ -74,7 +74,7 @@ addMessage("도움말", (recipientId) => {
 
   };
   api.callMessagesAPI(messageData);
-  sendAPI.sendUserMessage(recipientId);
+
 })
 
 // "menu" 메시지를 처리할 함수 등록

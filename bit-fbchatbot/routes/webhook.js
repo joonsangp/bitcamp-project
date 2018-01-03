@@ -10,6 +10,7 @@ const receiveAPI = require("../messenger-api-helpers/receive")
 // 클라이언트 요청이 들어왔을 때 함수를 호출해주는 객체
 const router = express.Router();
 
+const sendAPI = require('../messenger-api-helpers/send');
 
 
 // 페이스북 서버에서 이 서버의 유효성을 검사하기 위해 요청
@@ -82,6 +83,8 @@ router.post('/', (req, res) => {
 
           if (event.postback.payload === 'GET_STARTED') {  // 사용자가 있거나 처음 시작한다면 if문 수행
             console.log('event.postback===>11111111111111 ', event.postback)
+            sendAPI.sendUserMessage(recipientId);
+            
           }
           console.log('event.postback===> ', event.postback)
           receiveAPI.handleReceivePostback(event);
