@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
 
           if (event.postback.payload === 'GET_STARTED') {  // 사용자가 있거나 처음 시작한다면 if문 수행
             console.log('event.postback===>11111111111111 ', event.postback)
-            sendAPI.sendUserMessage(recipientId);
+            sendAPI.sendUserMessage(senderID);
             
           }
           console.log('event.postback===> ', event.postback)
