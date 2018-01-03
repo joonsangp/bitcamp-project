@@ -41,7 +41,6 @@ const handleReceivePostback = (event) => {
   var timeOfPostback = event.timestamp;
   var payload = event.postback.payload;
   var message = event.message;
-  //sendAPI.sendReadReceipt(senderID);
   
   console.log("Received postback for user %d and page %d with payload '%s' " +
     "at %d", senderID, recipientID, payload, timeOfPostback);
@@ -51,6 +50,9 @@ const handleReceivePostback = (event) => {
   if(handler){
     global[senderID].menu = payload;
     handler(senderID);
+    sendAPI.sendReadReceipt(senderID);
+
+    
   }else{
     sendAPI.sendTextMessage(senderID)
     var handler = messageHandler.getHandler("도움말")
