@@ -187,34 +187,7 @@ addMessage("미세먼지", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
   api.callMessagesAPI(messageData);
 })
-/*
-addMessage("자주하는 질문", (recipientId) => {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
 
-    message: {
-          "text": "아래 중에 궁금하신 내용이 있나요? \n"
-          + "1.\n"
-          + "2.\n"
-          + "3.\n"
-          + "4.\n"
-          + "5.\n",
-
-          quick_replies:[
-            {
-              "content_type":"text",
-              "title":"1",
-              "payload":"1",
-            }
-          ]
-    },
-  };
-
-  api.callMessagesAPI(messageData);
-})
-*/
 module.exports = {
   getHandler,
 };
