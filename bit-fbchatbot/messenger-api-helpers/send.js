@@ -150,6 +150,7 @@ module.exports = {
   sendTextMessage,
   sendGenericMessage,
   sendImageMessage,
-  typingOn
+  typingOn,
+  typingOff
 
 };
