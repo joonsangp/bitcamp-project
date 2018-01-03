@@ -50,13 +50,14 @@ addMessage('help', (recipientId) => {
   api.callMessagesAPI(messageData);
 });
 */
-
+/*
 const signOutButton = { type: 'account_unlink' };
 
 const signInButton = {
   type: 'account_link',
   url: `https://www.bangyeonju.xyz:9999/users/login`
 };
+*/
 
 addMessage("도움말", (recipientId) => {
   var messageData = {
@@ -73,7 +74,6 @@ addMessage("도움말", (recipientId) => {
     },
   };
   api.callMessagesAPI(messageData);
-  sendAPI.typingOn(recipientId)
 })
 
 addMessage('메뉴', (recipientId) => {
