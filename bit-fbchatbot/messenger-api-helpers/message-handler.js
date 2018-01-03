@@ -107,7 +107,7 @@ addMessage('메뉴', (recipientId) => {
     }
 
   };
-  sendAPI.typingOn(senderID);
+  sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
 addMessage('온도', (recipientId, messageText) => {
