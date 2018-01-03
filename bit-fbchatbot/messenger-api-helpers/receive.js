@@ -29,7 +29,6 @@ const handleReceiveMessage = (event) => {
       sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.')
       var handler = messageHandler.getHandler("도움말")
       handler(senderID)   
-      
     }
   };
 
@@ -41,10 +40,8 @@ const handleReceivePostback = (event) => {
   var payload = event.postback.payload;
   var message = event.message;
   
-
   console.log("Received postback for user %d and page %d with payload '%s' " +
     "at %d", senderID, recipientID, payload, timeOfPostback);
-
 
   var handler = postbackHandler.getHandler(payload);
 
@@ -55,12 +52,8 @@ const handleReceivePostback = (event) => {
     sendAPI.sendTextMessage(senderID)
     var handler = messageHandler.getHandler("도움말")
     handler(senderID)   
-
   }
-
 };
-
-
 
 module.exports = {
   handleReceiveMessage,

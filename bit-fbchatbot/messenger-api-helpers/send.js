@@ -1,4 +1,3 @@
-const castArray = require("lodash/castArray")
 const api = require('./api')
 const messages = require("./messages")
 
