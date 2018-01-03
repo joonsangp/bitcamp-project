@@ -1,6 +1,8 @@
 const api = require('./api');
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
+const isEmpty = require("lodash/isEmpty")
+
 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
@@ -77,7 +79,7 @@ addMessage("도움말", (recipientId) => {
 })
 
 // "menu" 메시지를 처리할 함수 등록
-addMessage(messageHandler.indexOf('메뉴'), (recipientId) => {
+addMessage(isEmpty('메뉴'), (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
