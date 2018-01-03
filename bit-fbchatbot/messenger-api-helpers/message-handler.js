@@ -104,7 +104,6 @@ addMessage('메뉴', (recipientId) => {
       }
     }
   };
-  //sendAPI.sendReadReceipt(recipientId);
   api.callMessagesAPI(messageData);
 })
 addMessage('온도', (recipientId, messageText) => {
