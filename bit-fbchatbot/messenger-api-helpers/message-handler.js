@@ -104,12 +104,12 @@ addMessage('메뉴', (recipientId) => {
       }
     }
   };
-  sendAPI.sendReadReceipt(recipientId);
+  //sendAPI.sendReadReceipt(recipientId);
   api.callMessagesAPI(messageData);
 })
 addMessage('온도', (recipientId, messageText) => {
 
-  sendAPI.typingOff(recipientId);
+   //sendAPI.typingOff(recipientId);
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
   
 })
