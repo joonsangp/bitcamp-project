@@ -1,7 +1,7 @@
 const api = require('./api');
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
-const isEmpty = require("lodash/isEmpty")
+const indexof = require("lodash/indexOf")
 
 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
