@@ -49,8 +49,10 @@ const handleReceivePostback = (event) => {
   } 
     else {
     sendAPI.sendWelcomeMessage(senderID);
-    var handler = messageHandler.getHandler("도움말")
-    handler(senderID)   
+    setTimeout(function() {
+      handler = messageHandler.getHandler("도움말")
+      handler(senderID)   
+    }, 1000);
   }
 };
 
