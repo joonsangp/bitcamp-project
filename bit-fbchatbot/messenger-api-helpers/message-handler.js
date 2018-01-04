@@ -1,7 +1,7 @@
 const api = require('./api');
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
-const indexof = require("lodash/indexOf")
+const indexOf = require("lodash/indexOf")
 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
@@ -59,7 +59,7 @@ const signInButton = {
   url: `https://www.bangyeonju.xyz:9999/users/login`
 };
 */
-if (addMessage.indexof('도움말')) { 
+if (addMessage.indexOf('도움말')) { 
 addMessage("도움말", (recipientId) => {
   var messageData = {
     recipient: {
