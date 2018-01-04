@@ -50,11 +50,7 @@ const handleReceivePostback = (event) => {
     global[senderID].menu = payload;
     handler(senderID);
 
-  } else if (payload === 'GET_STARTED') {
-    sendAPI.sendWelcomeMessage(senderID)
-    var handler = messageHandler.getHandler("도움말")
-    handler(senderID) 
-  }
+  } 
     else {
     //sendAPI.sendTextMessage(senderID)
     sendAPI.sendWelcomeMessage(senderID)
