@@ -47,7 +47,7 @@ const handleReceivePostback = (event) => {
   var handler = postbackHandler.getHandler(payload);
 
   if (handler) {
-    global[senderID].menu = payload;
+   // global[senderID].menu = payload;
     handler(senderID);
   } 
     else {

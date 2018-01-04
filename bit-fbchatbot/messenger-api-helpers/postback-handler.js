@@ -215,8 +215,8 @@ addPostback("/menu", (recipientId) => {
               "type": "postback",
               "title": "매장관리",
               "payload": "/store"
-            },
-          ],
+            }
+          ]
         },
       }
     }
