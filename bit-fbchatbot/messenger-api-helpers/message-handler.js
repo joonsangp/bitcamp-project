@@ -75,7 +75,7 @@ addMessage('온도', (recipientId, messageText) => {
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
 })
 
-addMessage((습도|가습기), (recipientId, messageText) => {
+addMessage(('습도'||'가습기'), (recipientId, messageText) => {
   var messageData = {
     recipient: {
       id: recipientId
