@@ -1,7 +1,7 @@
 const api = require('./api');
 const sendAPI = require('./send');
 const openAPI = require('../rest-api/openapi');
-const indexOf = require("lodash/indexOf")
+// const matches = require("lodash/matches")
 
 //message를 받았을 때 그 메시지를 처리할 함수를 보관하는 빈 객체.
 const messageHandler = {
@@ -26,6 +26,8 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 온도\n"
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
+      + "▶︎ 가습기\n"
+      + "▶︎ 환풍기\n"
     },
   };
   api.callMessagesAPI(messageData);
@@ -136,12 +138,84 @@ addMessage("미세먼지", (recipientId) => {
       }
     }
   };
-  
+
   //sendAPI.typingOn(recipientId);
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
   api.callMessagesAPI(messageData);
 })
 
+addMessage('가습기', (recipientId, messageText) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "가습기를 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "가습기 on",
+              "payload": "/store/humidity/on"
+            },
+            {
+              "type": "postback",
+              "title": "가습기 off",
+              "payload": "/store/humidity/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+  api.callMessagesAPI(messageData);
+
+})
+
+addMessage("환풍기", (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": "환풍기 제어 하시겠습니까?",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "환풍기 on",
+              "payload": "/store/dust/on"
+            },
+            {
+              "type": "postback",
+              "title": "환풍기 off",
+              "payload": "/store/dust/off"
+            },
+            {
+              "type": "postback",
+              "title": "메인으로",
+              "payload": "/menu"
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  //sendAPI.typingOn(recipientId);
+  api.callMessagesAPI(messageData);
+})
 module.exports = {
   getHandler,
 };
