@@ -188,7 +188,7 @@ addMessage('가습기', (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 
 })
-
+ 
 addMessage(('가습기')&&('on'), (recipientId, messageText) => {
   sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
   awsIoT.publish('dev01', 'topic_1', {
