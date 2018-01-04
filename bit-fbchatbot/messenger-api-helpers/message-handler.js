@@ -12,9 +12,9 @@ const addMessage = (message, handler) => {
 }
 
 const getHandler = (message) => {
-  for (var key in messageHandler) {
-    if (message.indexOf(key) != -1) {
-      return messageHandler[key];
+  for (var key in messageHandler) { //반복문을 돌면서 key값을 처리할 메시지가있나확인
+    if (message.indexOf(key) != -1) { // -1이 아니라면 true
+      return messageHandler[key]; // key값이 있는 메시지 나옴.
     }
   }
   return null;
@@ -218,6 +218,41 @@ addMessage("환풍기", (recipientId) => {
     }
   };
 
+  addMessage('가습기'&&('on'), (recipientId, messageText) => {
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "button",
+            "text": "가습기를 제어 하시겠습니까?",
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "가습기 on",
+                "payload": "/store/humidity/on"
+              },
+              {
+                "type": "postback",
+                "title": "가습기 off",
+                "payload": "/store/humidity/off"
+              },
+              {
+                "type": "postback",
+                "title": "메인으로",
+                "payload": "/menu"
+              }
+            ]
+          }
+        }
+      }
+    };
+    api.callMessagesAPI(messageData);
+  
+  })
   //sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
