@@ -78,13 +78,55 @@ addMessage('온도', (recipientId, messageText) => {
 })
 
 addMessage(('가습기')&&('on'), (recipientId, messageText) => {
-    sendAPI.sendTextMessage(recipientId, '가습기 on');
+  sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity on',
+    humidity: 'on'
+  });
   })
 
 addMessage(('가습기')&&('off'), (recipientId, messageText) => {
-    sendAPI.sendTextMessage(recipientId, '가습기 off');
+  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity off',
+    humidity: 'off'
+  });
   })
   
+
+addMessage(('가습기')&&('키'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity on',
+    humidity: 'on'
+  });
+  })
+
+addMessage(('가습기')&&('끄'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity off',
+    humidity: 'off'
+  });
+  })
+
+  addMessage(('가습기')&&('켜'), (recipientId, messageText) => {
+    sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
+    awsIoT.publish('dev01', 'topic_1', {
+      message: 'humidity on',
+      humidity: 'on'
+    });
+    })
+  
+  addMessage(('가습기')&&('꺼'), (recipientId, messageText) => {
+    sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
+    awsIoT.publish('dev01', 'topic_1', {
+      message: 'humidity off',
+      humidity: 'off'
+    });
+    })
+    
+
 
 addMessage('습도', (recipientId, messageText) => {
   var messageData = {
