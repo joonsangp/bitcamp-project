@@ -1,5 +1,4 @@
 const api = require('./api')
-const messages = require("./messages")
 const castArray = require("lodash/castArray")
 
 const typingOn = (recipientId) => {
