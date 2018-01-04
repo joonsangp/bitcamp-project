@@ -20,9 +20,6 @@ const getHandler = (message) => {
     else if (message.indexOf(key) && message.indexOf(key) != -1) {
       return messageHandler[key]; // key값이 있는 메시지 나옴.
     }
-    else if (message.indexOf(key) || message.indexOf(key) == -1) {
-      return null;
-    }
   }
   return null;
 };
@@ -131,7 +128,7 @@ addMessage(('가습기')&&('끄'), (recipientId, messageText) => {
     
 
 
-addMessage(('습도')||('가습기'), (recipientId, messageText) => {
+addMessage('습도', (recipientId, messageText) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -205,7 +202,7 @@ addMessage("미세먼지", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
   api.callMessagesAPI(messageData);
 })
-/*
+
 addMessage('가습기', (recipientId, messageText) => {
   var messageData = {
     recipient: {
@@ -240,7 +237,7 @@ addMessage('가습기', (recipientId, messageText) => {
   };
   api.callMessagesAPI(messageData);
 
-})*/
+})
 
 addMessage("환풍기", (recipientId) => {
   var messageData = {
