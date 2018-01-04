@@ -49,11 +49,10 @@ const handleReceivePostback = (event) => {
   if (handler) {
     global[senderID].menu = payload;
     handler(senderID);
-
   } 
     else {
-    //sendAPI.sendTextMessage(senderID)
-    sendAPI.sendTextMessage(senderID,"안녕하세요 레스토랑 입니다.\n 저는 메신저가 편한 고객님들을 위해 새롭게 선보이는 자동채팅 서비스입니다")
+    sendAPI.sendWelcomeMessage(senderID)
+    
     var handler = messageHandler.getHandler("도움말")
     handler(senderID)   
   }

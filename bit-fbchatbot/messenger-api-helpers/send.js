@@ -26,6 +26,17 @@ const sendTextMessage = (recipientId, messageText) => {
   };
   api.callMessagesAPI(messageData);
 };
+const sendWelcomeMessage = (recipientId) => {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "안녕하세요 레스토랑 입니다.\n 저는 메신저가 편한 고객님들을 위해 새롭게 선보이는 자동채팅 서비스입니다"
+    }
+  };
+  api.callMessagesAPI(messageData);
+};
 const sendImageMessage = (recipientId) => {
   var messageData = {
     recipient: {
@@ -145,6 +156,7 @@ module.exports = {
   sendGenericMessage,
   sendImageMessage,
   typingOn,
+  sendWelcomeMessage
   
 
 };
