@@ -9,7 +9,6 @@ const messageHandler = {
 
 const addMessage = (message, handler) => {
   messageHandler[message] = handler;
-  
 }
 
 const getHandler = (message) => {

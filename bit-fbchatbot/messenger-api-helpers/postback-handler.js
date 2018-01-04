@@ -23,7 +23,7 @@ addPostback("/board", (recipientId) => {
         "type": "template",
         "payload": {
           "template_type": "button",
-          "text": "메뉴판확인",
+          "text": "메뉴판 확인해주세요",
           "buttons": [
             {
               "type": "postback",
@@ -62,7 +62,7 @@ addPostback("/store", (recipientId) => {
         "type": "template",
         "payload": {
           "template_type": "button",
-          "text": "실내매장관리",
+          "text": "매장 관리해주세요",
           "buttons": [
             {
               "type": "postback",
