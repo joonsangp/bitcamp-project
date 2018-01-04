@@ -116,7 +116,6 @@ addMessage('온도', (recipientId, messageText) => {
 })
 
 addMessage('습도', (recipientId, messageText) => {
-  sendAPI.typingOn(recipientId);
   var messageData = {
     recipient: {
       id: recipientId
