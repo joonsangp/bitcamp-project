@@ -107,7 +107,10 @@ addMessage('습도', (recipientId, messageText) => {
       }
     }
   };
-  sendAPI.sendTextMessage(recipientId, '현재습도: ');
+  sendAPI.typingOn(recipientId);
+  setTimeout(function() {
+    sendAPI.sendTextMessage(recipientId, '현재습도: ');
+  }, 1000);
   api.callMessagesAPI(messageData);
 
 })
