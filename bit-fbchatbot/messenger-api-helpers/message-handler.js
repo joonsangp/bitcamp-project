@@ -222,7 +222,7 @@ addMessage("환풍기", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 addMessage('가습기'&&('on'), (recipientId, messageText) => {
-  sendAPI.sendTextMessage(recipientId, '가습기   ');
+  sendAPI.sendTextMessage(recipientId, '가습기 킴 ');
   
 })
 module.exports = {
