@@ -221,7 +221,7 @@ addMessage("환풍기", (recipientId) => {
   //sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
-addMessage(('가습기')&&('on'), (recipientId, messageText) => {
+addMessage('가습기'&'on', (recipientId, messageText) => {
   sendAPI.sendTextMessage(recipientId, '가습기 킴 ');
   
 })
