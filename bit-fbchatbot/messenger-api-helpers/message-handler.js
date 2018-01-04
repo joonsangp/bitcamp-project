@@ -21,7 +21,7 @@ const getHandler = (message) => {
       return messageHandler[key]; // key값이 있는 메시지 나옴.
     }
     else if (message.indexOf(key) || message.indexOf(key) == -1) {
-      return messageHandler[key]; // key값이 있는 메시지 나옴.
+      return null;
     }
   }
   return null;
