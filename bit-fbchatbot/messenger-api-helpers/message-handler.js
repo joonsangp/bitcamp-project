@@ -75,7 +75,7 @@ addMessage('온도', (recipientId, messageText) => {
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
 })
 
-addMessage('습도', (recipientId, messageText) => {
+addMessage(('습도'|'가습기'), (recipientId, messageText) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -107,10 +107,8 @@ addMessage('습도', (recipientId, messageText) => {
       }
     }
   };
-  sendAPI.typingOn(recipientId);
-  setTimeout(function() {
-    sendAPI.sendTextMessage(recipientId, '현재습도: ');
-  }, 1000);
+  sendAPI.sendTextMessage(recipientId, '현재습도: ');
+  ㄴ
   api.callMessagesAPI(messageData);
 
 })
@@ -152,7 +150,7 @@ addMessage("미세먼지", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
   api.callMessagesAPI(messageData);
 })
-
+/*
 addMessage('가습기', (recipientId, messageText) => {
   var messageData = {
     recipient: {
@@ -188,7 +186,7 @@ addMessage('가습기', (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 
 })
-
+*/
 addMessage("환풍기", (recipientId) => {
   var messageData = {
     recipient: {
