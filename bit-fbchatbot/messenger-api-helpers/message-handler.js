@@ -29,7 +29,6 @@ addMessage("도움말", (recipientId) => {
     },
   };
   api.callMessagesAPI(messageData);
-  
 })
 
 addMessage('메뉴', (recipientId) => {
@@ -58,11 +57,11 @@ addMessage('메뉴', (recipientId) => {
         },
       }
     }
-
   };
   sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
 })
+
 addMessage('온도', (recipientId, messageText) => {
 
   sendAPI.sendTextMessage(recipientId, '현재온도: ');

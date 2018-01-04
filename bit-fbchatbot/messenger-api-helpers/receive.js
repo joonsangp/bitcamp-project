@@ -53,6 +53,7 @@ const handleReceivePostback = (event) => {
       handler = messageHandler.getHandler("도움말")
       handler(senderID)   
     }, 1000);
+    
   }
 };
 
