@@ -14,7 +14,7 @@ const addMessage = (message, handler) => {
 // 등록된 메시지 핸들러를 찾아서 리턴한다
 const getHandler = (message) => {
   for (var key in messageHandler) { // 반복문을 돌면서 key(=message) 값을 처리할 메시지가 있나 확인
-    if (message.indexOf(key) || message.indexOf(key) != -1) { // -1이 아니라면 true
+    if (message.indexOf(key) != -1) { // -1이 아니라면 true
       return messageHandler[key]; // key값이 있는 메시지 나옴.
     }
     else if (message.indexOf(key) && message.indexOf(key) != -1) {
@@ -86,7 +86,7 @@ addMessage(('가습기')&&('off'), (recipientId, messageText) => {
   })
   
 
-addMessage(('습도')||('가습기'), (recipientId, messageText) => {
+addMessage('습도', (recipientId, messageText) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -161,7 +161,7 @@ addMessage("미세먼지", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
   api.callMessagesAPI(messageData);
 })
-/*
+
 addMessage('가습기', (recipientId, messageText) => {
   var messageData = {
     recipient: {
@@ -197,7 +197,6 @@ addMessage('가습기', (recipientId, messageText) => {
   api.callMessagesAPI(messageData);
 
 })
-*/
 
 addMessage("환풍기", (recipientId) => {
   var messageData = {
