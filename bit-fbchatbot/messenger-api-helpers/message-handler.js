@@ -59,7 +59,7 @@ const signInButton = {
   url: `https://www.bangyeonju.xyz:9999/users/login`
 };
 */
-if (addMessage.indexOf('도움말')) { 
+if (messageData.indexOf('도움말')) { 
 addMessage("도움말", (recipientId) => {
   var messageData = {
     recipient: {
