@@ -15,12 +15,12 @@ def customCallback(client, userdata, message):
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
-    ledState = dict['led']
+    ledState = dict['humidity']
     if ledState == "on":
         led.onLed(True)
     else:
         led.onLed(False)
-    print("--------------")
+    print("--------------") 
 
 host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
 rootCAPath = "../root-CA.crt"
