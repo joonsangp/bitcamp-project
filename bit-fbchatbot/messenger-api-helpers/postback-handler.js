@@ -184,11 +184,22 @@ addPostback("/store/dust", (recipientId) => {
 
 addPostback("/store/dust/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'dust on',
+    dust: 'on'
+  });
+  //awsIoTShadow.update({dust:on});
   
 })
 
 addPostback("/store/dust/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'dust off',
+    dust: 'off'
+  });
+  //awsIoTShadow.update({dust:on});
+  
 })
 
 
