@@ -27,7 +27,7 @@ const handleReceiveMessage = (event) => {
       handler(senderID, messageText);
       */
     } else {    
-      sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.')
+      sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.');
       var handler = messageHandler.getHandler("도움말")
       handler(senderID)   
     }
@@ -52,7 +52,6 @@ const handleReceivePostback = (event) => {
   } 
     else {
     sendAPI.sendWelcomeMessage(senderID);
-    
     var handler = messageHandler.getHandler("도움말")
     handler(senderID)   
   }
