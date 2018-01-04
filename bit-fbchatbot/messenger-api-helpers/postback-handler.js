@@ -216,7 +216,6 @@ addPostback("/menu", (recipientId) => {
               "title": "매장관리",
               "payload": "/store"
             },
-            signOutButton
           ],
         },
       }
