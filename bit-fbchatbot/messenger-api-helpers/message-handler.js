@@ -15,50 +15,6 @@ const addMessage = (message, handler) => {
 const getHandler = (message) => {
   return messageHandler[message];
 };
-/*
-addMessage('help', (recipientId) => {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "button",
-          "text": "메뉴",
-          "buttons": [
-            {
-              "type": "postback",
-              "title": "LED",
-              "payload": "/led"
-            },
-            {
-              "type": "postback",
-              "title": "계산기",
-              "payload": "/calc"
-            },
-            {
-              "type": "postback",
-              "title": "주소검색",
-              "payload": "/addr"
-            }
-          ]
-        }
-      }
-    }
-  };
-  api.callMessagesAPI(messageData);
-});
-*/
-/*
-const signOutButton = { type: 'account_unlink' };
-
-const signInButton = {
-  type: 'account_link',
-  url: `https://www.bangyeonju.xyz:9999/users/login`
-};
-*/
 
 addMessage("도움말", (recipientId) => {
   var messageData = {
@@ -71,7 +27,6 @@ addMessage("도움말", (recipientId) => {
       + "▶︎ 온도\n"
       + "▶︎ 습도\n"
       + "▶︎ 미세먼지\n"
-      // + "▶︎ 자주하는 질문\n",
     },
   };
   api.callMessagesAPI(messageData);
@@ -99,8 +54,7 @@ addMessage('메뉴', (recipientId) => {
               "type": "postback",
               "title": "매장관리",
               "payload": "/store"
-            },
-           // signOutButton
+            }
           ],
         },
       }
@@ -147,7 +101,6 @@ addMessage('습도', (recipientId, messageText) => {
       }
     }
   };
-  //sendAPI.typingOn(recipientId);
   sendAPI.sendTextMessage(recipientId, '현재습도: ');
   api.callMessagesAPI(messageData);
 
@@ -190,34 +143,7 @@ addMessage("미세먼지", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '현재미세먼지: ');
   api.callMessagesAPI(messageData);
 })
-/*
-addMessage("자주하는 질문", (recipientId) => {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
 
-    message: {
-          "text": "아래 중에 궁금하신 내용이 있나요? \n"
-          + "1.\n"
-          + "2.\n"
-          + "3.\n"
-          + "4.\n"
-          + "5.\n",
-
-          quick_replies:[
-            {
-              "content_type":"text",
-              "title":"1",
-              "payload":"1",
-            }
-          ]
-    },
-  };
-
-  api.callMessagesAPI(messageData);
-})
-*/
 module.exports = {
   getHandler,
 };
