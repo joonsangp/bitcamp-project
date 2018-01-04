@@ -13,7 +13,7 @@ const addMessage = (message, handler) => {
 
 const getHandler = (message) => {
   for (var key in messageHandler) {
-    if (messsage.indexOf(key) != -1) {
+    if (message.indexOf(key) != -1) {
       return messageHandler[key];
     }
   }
