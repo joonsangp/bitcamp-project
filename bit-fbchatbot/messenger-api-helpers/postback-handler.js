@@ -1,7 +1,7 @@
 const api = require('./api');
 const sendAPI = require('./send');
-//const awsIoT = require('../iot-api/aws')
-const awsIoTShadow = require('../iot-api/shadow')
+const awsIoT = require('../iot-api/aws')
+//const awsIoTShadow = require('../iot-api/shadow')
 
 const postbackHandler = {};
 
@@ -129,20 +129,20 @@ addPostback("/store/humidity", (recipientId) => {
 
 addPostback("/store/humidity/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
-  // awsIoT.publish('dev01', 'topic_1', {
-  //   message: 'humidity on',
-  //   humidifier: 'on'
-  // });
-  // awsIoTShadow.update({humidifier:on});
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity on',
+    humidity: 'on'
+  });
+  //awsIoTShadow.update({humidity:on});
 })
 
 addPostback("/store/humidity/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
-  // awsIoT.publish('dev01', 'topic_1', {
-  //   message: 'humidity off',
-  //   humidifier: 'off'
-  // });
-  // awsIoTShadow.update({humidifier:off});
+  awsIoT.publish('dev01', 'topic_1', {
+    message: 'humidity off',
+    humidity: 'off'
+  });
+  //awsIoTShadow.update({humidity:off});
 })
 
 
