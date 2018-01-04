@@ -22,6 +22,7 @@ const handleReceiveMessage = (event) => {
     if(handler) { // 메시지를 처리할 함수가 있다면
       handler(senderID); // 그함수 호츨    
     } else {    
+      sendAPI.typingOn(recipientId);
       sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.');
       setTimeout(function() {
         handler = messageHandler.getHandler("도움말")
