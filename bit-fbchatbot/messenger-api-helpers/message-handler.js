@@ -12,7 +12,12 @@ const addMessage = (message, handler) => {
 }
 
 const getHandler = (message) => {
-  return messageHandler[message];
+  for (var key in messageHandler) {
+    if (messsage.indexOf(key) != -1) {
+      return messageHandler[key];
+    }
+  }
+  return null;
 };
 
 addMessage("도움말", (recipientId) => {
