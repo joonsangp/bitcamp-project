@@ -25,11 +25,11 @@ const handleReceiveMessage = (event) => {
       
       handler = messageHandler.getHandler(menu); // 사용자 현재 메뉴의 메시지를 처리할 함수를 꺼낸다
       handler(senderID, messageText);
+      handler = messageHandler.getHandler("도움말")
+      handler(senderID)   
       
     } else {    
       sendAPI.sendTextMessage(senderID, '유효한 명령이 아닙니다.');
-      var handler = messageHandler.getHandler("도움말")
-      handler(senderID)   
     }
   };
 
