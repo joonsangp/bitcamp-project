@@ -218,44 +218,14 @@ addMessage("환풍기", (recipientId) => {
     }
   };
 
-  addMessage('가습기'&&('on'), (recipientId, messageText) => {
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      message: {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "button",
-            "text": "가습기를 제어 하시겠습니까?",
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "가습기 on",
-                "payload": "/store/humidity/on"
-              },
-              {
-                "type": "postback",
-                "title": "가습기 off",
-                "payload": "/store/humidity/off"
-              },
-              {
-                "type": "postback",
-                "title": "메인으로",
-                "payload": "/menu"
-              }
-            ]
-          }
-        }
-      }
-    };
-    api.callMessagesAPI(messageData);
-  
-  })
   //sendAPI.typingOn(recipientId);
   api.callMessagesAPI(messageData);
+})
+addMessage('가습기'&&('on'), (recipientId, messageText) => {
+  sendAPI.sendTextMessage(recipientId, '가습기   ');
+  
 })
 module.exports = {
   getHandler,
 };
+
