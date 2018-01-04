@@ -26,6 +26,7 @@ const sendTextMessage = (recipientId, messageText) => {
   };
   api.callMessagesAPI(messageData);
 };
+
 const sendWelcomeMessage = (recipientId) => {
   var messageData = {
     recipient: {
