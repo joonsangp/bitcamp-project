@@ -76,5 +76,4 @@ print("connect! \n")
 # AWS IoT의 Thing의 'topic_1' 사서함을 구독하겠다고 선언
 # 메시지를 받으면 customCallback 함수가 호출될 것이다.
 # myAWSIoTMQTTClient.subscribe(topic, 1, customCallback1)
-
- myAWSIoTMQTTClient.subscribe(topic, 1, customCallback2)
+myAWSIoTMQTTClient.subscribe(topic, 1, customCallback2)
