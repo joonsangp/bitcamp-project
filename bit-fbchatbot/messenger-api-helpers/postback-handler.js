@@ -72,12 +72,12 @@ addPostback("/store", (recipientId) => {
             {
               "type": "postback",
               "title": "습도",
-              "payload": "/store/humidity"
+              "payload": "/store/humidifier"
             },
             {
               "type": "postback",
               "title": "미세먼지",
-              "payload": "/store/dust"
+              "payload": "/store/ventilator"
             }
           ]
         }
@@ -91,7 +91,7 @@ addPostback("/store/temperature", (recipientId) => {
 })
 
 
-addPostback("/store/humidity", (recipientId) => {
+addPostback("/store/humidifier", (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -106,12 +106,12 @@ addPostback("/store/humidity", (recipientId) => {
             {
               "type": "postback",
               "title": "가습기 on",
-              "payload": "/store/humidity/on"
+              "payload": "/store/humidifier/on"
             },
             {
               "type": "postback",
               "title": "가습기 off",
-              "payload": "/store/humidity/off"
+              "payload": "/store/humidifier/off"
             },
             {
               "type": "postback",
@@ -127,26 +127,26 @@ addPostback("/store/humidity", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 
-addPostback("/store/humidity/on", (recipientId) => {
+addPostback("/store/humidifier/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
   awsIoT.publish('dev01', 'topic_1', {
-    message: 'humidity on',
-    humidity: 'on'
+    message: 'humidifier on',
+    humidifier: 'on'
   });
-  //awsIoTShadow.update({humidity:on});
+  //awsIoTShadow.update({humidifier:on});
 })
 
-addPostback("/store/humidity/off", (recipientId) => {
+addPostback("/store/humidifier/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '가습기 끕니다');
   awsIoT.publish('dev01', 'topic_1', {
-    message: 'humidity off',
-    humidity: 'off'
+    message: 'humidifier off',
+    humidifier: 'off'
   });
-  //awsIoTShadow.update({humidity:off});
+  //awsIoTShadow.update({humidifier:off});
 })
 
 
-addPostback("/store/dust", (recipientId) => {
+addPostback("/store/ventilator", (recipientId) => {
   var messageData = {
     recipient: {
       id: recipientId
@@ -161,12 +161,12 @@ addPostback("/store/dust", (recipientId) => {
             {
               "type": "postback",
               "title": "환풍기 on",
-              "payload": "/store/dust/on"
+              "payload": "/store/ventilator/on"
             },
             {
               "type": "postback",
               "title": "환풍기 off",
-              "payload": "/store/dust/off"
+              "payload": "/store/ventilator/off"
             },
             {
               "type": "postback",
@@ -182,23 +182,23 @@ addPostback("/store/dust", (recipientId) => {
   api.callMessagesAPI(messageData);
 })
 
-addPostback("/store/dust/on", (recipientId) => {
+addPostback("/store/ventilator/on", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '환풍기 켭니다');
   awsIoT.publish('dev01', 'topic_1', {
-    message: 'dust on',
-    dust: 'on'
+    message: 'ventilator on',
+    ventilator: 'on'
   });
-  //awsIoTShadow.update({dust:on});
+  //awsIoTShadow.update({ventilator:on});
   
 })
 
-addPostback("/store/dust/off", (recipientId) => {
+addPostback("/store/ventilator/off", (recipientId) => {
   sendAPI.sendTextMessage(recipientId, '환풍기 끕니다');
   awsIoT.publish('dev01', 'topic_1', {
-    message: 'dust off',
-    dust: 'off'
+    message: 'ventilator off',
+    ventilator: 'off'
   });
-  //awsIoTShadow.update({dust:on});
+  //awsIoTShadow.update({ventilator:off});
   
 })
 

@@ -17,12 +17,14 @@ const getHandler = (message) => {
     if (message.indexOf(key) != -1) { // -1이 아니라면 true
       return messageHandler[key]; // key값이 있는 메시지 나옴.
     }
+    /*
     else if (message.indexOf(key) && message.indexOf(key) != -1) {
       return messageHandler[key]; // key값이 있는 메시지 나옴.
     } 
     else {
       return null;
     }
+    */
 
   }
   return null;
@@ -80,7 +82,7 @@ addMessage('메뉴', (recipientId) => {
 addMessage('온도', (recipientId, messageText) => {
   sendAPI.sendTextMessage(recipientId, '현재온도: ');
 })
-
+/*
 addMessage(('가습기')&&('on'), (recipientId, messageText) => {
   sendAPI.sendTextMessage(recipientId, '가습기 켭니다');
   awsIoT.publish('dev01', 'topic_1', {
@@ -180,7 +182,7 @@ addMessage(('가습기')&&('끄'), (recipientId, messageText) => {
           dust: 'off'
         });
         })
-        
+        */
 addMessage('습도', (recipientId, messageText) => {
   var messageData = {
     recipient: {
@@ -196,12 +198,12 @@ addMessage('습도', (recipientId, messageText) => {
             {
               "type": "postback",
               "title": "가습기 on",
-              "payload": "/store/humidity/on"
+              "payload": "/store/humidifier/on"
             },
             {
               "type": "postback",
               "title": "가습기 off",
-              "payload": "/store/humidity/off"
+              "payload": "/store/humidifier/off"
             },
             {
               "type": "postback",
@@ -234,12 +236,12 @@ addMessage("미세먼지", (recipientId) => {
             {
               "type": "postback",
               "title": "환풍기 on",
-              "payload": "/store/dust/on"
+              "payload": "/store/ventilator/on"
             },
             {
               "type": "postback",
               "title": "환풍기 off",
-              "payload": "/store/dust/off"
+              "payload": "/store/ventilator/off"
             },
             {
               "type": "postback",
@@ -271,12 +273,12 @@ addMessage('가습기', (recipientId, messageText) => {
             {
               "type": "postback",
               "title": "가습기 on",
-              "payload": "/store/humidity/on"
+              "payload": "/store/humidifier/on"
             },
             {
               "type": "postback",
               "title": "가습기 off",
-              "payload": "/store/humidity/off"
+              "payload": "/store/humidifier/off"
             },
             {
               "type": "postback",
@@ -307,12 +309,12 @@ addMessage("환풍기", (recipientId) => {
             {
               "type": "postback",
               "title": "환풍기 on",
-              "payload": "/store/dust/on"
+              "payload": "/store/ventilator/on"
             },
             {
               "type": "postback",
               "title": "환풍기 off",
-              "payload": "/store/dust/off"
+              "payload": "/store/ventilator/off"
             },
             {
               "type": "postback",
