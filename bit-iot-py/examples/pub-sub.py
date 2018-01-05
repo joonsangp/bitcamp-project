@@ -19,7 +19,7 @@ def customCallback(client, userdata, message):
     humidifierState = dict['humidifier'] # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
     if humidifierState == "on":
         humidifier.onHumidifier(True)
-    else humidifierState == "off": # else humidifierState == "off" 이게 안되면 else : 요걸로 진행
+    else :
         humidifier.onHumidifier(False)
     print("--------------")
 
@@ -27,7 +27,7 @@ def customCallback(client, userdata, message):
     ventilatorState = dict['ventilator']
     if ventilatorState == "on":
         ventilator.onVentilator(True)
-    else ventilatorState == "off":
+    else :
         ventilator.onVentilator(False)
     print("--------------")
 
