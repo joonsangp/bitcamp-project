@@ -23,6 +23,14 @@ def customCallback(client, userdata, message):
         humidifier.onHumidifier(False)
     print("--------------")
 
+def customCallback(client, userdata, message):
+    print("메시지를 수신하였습니다. \n")
+    print("사서함 이름: ")
+    print(message.topic)
+    print("메시지 내용: ")
+    #print(message.payload)
+    # 사서함에서 받은 Json 문자열을 객체로 변환
+    dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
     ventilatorState = dict['ventilator']
     if ventilatorState == "on":
