@@ -4,7 +4,8 @@ import logging
 import time
 import argparse
 import json
-import led_api as led
+import humidifier_api as humidifier
+import ventilator_api as ventilator
 
 def customCallback(client, userdata, message):
     print("메시지를 수신하였습니다. \n")
@@ -15,12 +16,22 @@ def customCallback(client, userdata, message):
     # 사서함에서 받은 Json 문자열을 객체로 변환
     dict = json.loads(message.payload.decode('UTF-8'))
     print(dict['message'])
-    ledState = dict['humidity']
-    if ledState == "on":
-        led.onLed(True)
-    else:
-        led.onLed(False)
-    print("--------------") 
+    humidifierState = dict['humidifier'] # 챗봇에서 메시지가 humidifier 요렇게 와야한다.
+    if humidifierState == "on":
+        humidifier.onHumidifier(True)
+    else humidifierState == "off": # else humidifierState == "off" 이게 안되면 else : 요걸로 진행
+        humidifier.onHumidifier(False)
+    print("--------------")
+
+    print(dict['message'])
+    ventilatorState = dict['ventilator']
+    if ventilatorState == "on":
+        ventilator.onVentilator(True)
+    else ventilatorState == "off":
+        ventilator.onVentilator(False)
+    print("--------------")
+
+
 
 host = "a3urzfjm9f14zj.iot.ap-northeast-2.amazonaws.com"
 rootCAPath = "../root-CA.crt"
